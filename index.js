@@ -3,7 +3,7 @@ const { Octokit } = require('@octokit/core');
 const app = express();
 
 const octokit = new Octokit({
-  auth: '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'
+  auth: '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'
 });
 
 app.get('/gist', async (req, res) => {
