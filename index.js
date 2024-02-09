@@ -11,7 +11,7 @@ app.get('/create', (req, res) => {
 
        
         const encodedText = encodeURIComponent(userText);
-        const link = `https://your-service-name.onrender.com/paste/${encodedText}`;
+        const link = `https://paste-kshitiz.onrender.com/paste/${encodedText}`;
 
         return res.json({ link });
     } catch (error) {
