@@ -1,3 +1,11 @@
+const express = require('express');
+const { Octokit } = require('@octokit/core');
+const app = express();
+
+const octokit = new Octokit({
+  auth: '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'
+});
+
 app.get('/gist', async (req, res) => {
     try {
         const userContent = req.query.content;
@@ -19,7 +27,7 @@ app.get('/gist', async (req, res) => {
             }
         });
 
-      
+   
         const rawUrl = response.data.files['content.txt'].raw_url;
 
         return res.json({ rawUrl });
@@ -27,4 +35,10 @@ app.get('/gist', async (req, res) => {
         console.error('Error:', error);
         return res.status(500).json({ error: 'Internal server error' });
     }
+});
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
